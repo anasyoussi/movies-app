@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col'; 
-import Movie from '../Components/Movie'; 
+import Col from 'react-bootstrap/Col';  
 import axios from 'axios';
 import { POPULAR_BASE_URL, img_300, API_KEY, API_URL } from '../Config/config'; 
+import Show from '../Components/Show';
 
 
 const TvShows = () => {
@@ -28,9 +28,9 @@ const TvShows = () => {
         {
           movies?.map( (movie) =>  
             <Col >
-                <Movie
+                <Show
                   id={movie.id} 
-                  title={movie.name} 
+                  title={movie.original_name} 
                   rating={movie.vote_average} 
                   image={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} 
                   year={movie.first_air_date} 

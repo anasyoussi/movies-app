@@ -2,12 +2,12 @@ import React from 'react'
 import styled from 'styled-components'; 
  
 
-const Movie = ({ title, rating, image, year, id }) => { 
+const Show = ({ title, rating, image, year, id }) => { 
   return (  
     <Card className="card" key={id}>
       <Img className="card-img-top" src={image} alt="" />
       <CardBody className="card-body">
-          <Title className="card-title"><a href={`/movie/${id}`}>{ title.length > 15 ? `${title.substring(0, 19)}...` :  title  }</a></Title> 
+          <Title className="card-title"><a href={`/tv/${id}`}>{ title.length > 15 ? `${title.substring(0, 19)}...` :  title  }</a></Title> 
           <CardText className="card-text">
             { year.split('-')[0] } 
           </CardText>
@@ -55,4 +55,4 @@ const CardText = styled.p`
   margin: 0px;
 `;
 
-export default Movie
+export default Show

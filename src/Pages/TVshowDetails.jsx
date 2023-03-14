@@ -6,28 +6,26 @@ import { API_URL, API_KEY, BACKDROP_SIZE } from '../Config/config';
 import { AiFillStar } from "react-icons/ai"
 
 
-function MovieDetails() {
+function TVshowDetails() {
   let params = useParams();
      
   const [movie, setMovie] = useState({});  
   const [trailer, setTrailer] = useState([]); 
   
   const fetchTrailer = async () => {
-    const { data } = await axios.get(`${API_URL}movie/${params.movieId}/videos?api_key=${API_KEY}&language=en-US`) ;
+    const { data } = await axios.get(`${API_URL}tv/${params.tvId}/videos?api_key=${API_KEY}&language=en-US`) ;
     console.log(data.results)
     setTrailer(data.results[0].key); 
   }
   const fetchMovieDetails = async () => {
-    const { data } = await axios.get(`${API_URL}movie/${params.movieId}?api_key=${API_KEY}&language=en-US`);  
+    const { data } = await axios.get(`${API_URL}tv/${params.tvId}?api_key=${API_KEY}&language=en-US`);  
     setMovie(data) 
   }
 
   useEffect(() => {
     fetchMovieDetails(); 
     fetchTrailer()
-  }, []) ; 
-
-  console.log() ;
+  }, []) ;  
 
   return (
     <>
@@ -36,7 +34,7 @@ function MovieDetails() {
         <div className="MovieDetails">
           <img className='imgPoster' src={`	https://image.tmdb.org/t/p/w300_and_h450_face/${movie.poster_path}`} alt="" />
           <div className='details'>
-            <h1>{movie?.title}</h1>
+            <h1>{movie?.original_name}</h1>
             <p className='rating'><AiFillStar /> {movie?.vote_average}</p>
             <p className='genres'></p>
             <p className='details'>
@@ -101,4 +99,4 @@ const Wrapper = styled.div`
 
 
 
-export default MovieDetails
+export default TVshowDetails
