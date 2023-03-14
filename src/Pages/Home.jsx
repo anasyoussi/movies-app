@@ -7,12 +7,11 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Movie from '../Components/Movie'; 
 import axios from 'axios';
-import { POPULAR_BASE_URL } from '../Config/config';
+import { POPULAR_BASE_URL, img_300 } from '../Config/config';
+import styled from 'styled-components';
  
 
-const Home = () => { 
-
-  
+const Home = () => {   
   const [movies, setMovies] = useState([]); 
 
   const fetchMovies = async () => {
@@ -22,29 +21,30 @@ const Home = () => {
 
   useEffect(() => {
     fetchMovies(); 
-  }, []) 
+  }, []) ; 
+
+
 console.log(movies)
   return (
-    <Container> 
-      home
-      <Row>  
-        <Col md={4} sm={2}>
+    <Container style={{ marginTop: '20px' }}>  
+      <Row>   
         {
-          movies && movies.map( (movie) =>  
-            <Movie
+          movies?.map( (movie) =>  
+            <Col >
+                <Movie
                   id={movie.id} 
                   title={movie.title} 
                   rating={movie.vote_average} 
-                  image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} 
+                  image={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} 
                   year={movie.release_date} 
-            />
+                />
+            </Col>
           )
-        }
-        </Col>
-        
+        } 
       </Row>
     </Container>
   )
-}
+} 
+ 
 
 export default Home

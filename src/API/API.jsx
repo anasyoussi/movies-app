@@ -7,7 +7,7 @@ import {
 
 export const apiCall = {
   getMovies: async () => {
-    return await axios(`${POPULAR_BASE_URL}`)
+    return await axios.get(`${POPULAR_BASE_URL}`)
           .then (res => { return res.data.results; })
           .catch(err => { return err; })   
   },

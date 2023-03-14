@@ -15,12 +15,11 @@ const MoviesNavbar = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse className="justify-content-end text-center" id="responsive-navbar-nav"> 
             <Nav>
-                <Link className='nav-link' to="/">Home</Link>
-                <Link className='nav-link' to="/trending">Trending</Link>
+                <Link className='nav-link' to="/">Home</Link> 
                 <Link className='nav-link' to="/discover">Discover</Link>
                 <Link className='nav-link' to="/tvshows">Tv Shows</Link>
-                <Link className='nav-link' to="/login">Login</Link>
-                <Link className='nav-link' to="/signup">SignUp</Link>
+                {/* <Link className='nav-link' to="/login">Login</Link>
+                <Link className='nav-link' to="/signup">SignUp</Link> */}
             </Nav> 
           </Navbar.Collapse>
         </Container>
